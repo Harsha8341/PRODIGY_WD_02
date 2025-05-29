@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.rain::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: fall linear infinite;
+  box-shadow:
+    5vw 5vh rgba(255, 255, 255, 0.3),
+    10vw 15vh rgba(255, 255, 255, 0.4),
+    15vw 25vh rgba(255, 255, 255, 0.3),
+    20vw 35vh rgba(255, 255, 255, 0.4),
+    25vw 10vh rgba(255, 255, 255, 0.2),
+    30vw 20vh rgba(255, 255, 255, 0.3),
+    35vw 30vh rgba(255, 255, 255, 0.4),
+    40vw 40vh rgba(255, 255, 255, 0.3),
+    45vw 50vh rgba(255, 255, 255, 0.4),
+    50vw 15vh rgba(255, 255, 255, 0.3),
+    55vw 25vh rgba(255, 255, 255, 0.4),
+    60vw 35vh rgba(255, 255, 255, 0.3),
+    65vw 45vh rgba(255, 255, 255, 0.4),
+    70vw 55vh rgba(255, 255, 255, 0.3),
+    75vw 20vh rgba(255, 255, 255, 0.4),
+    80vw 30vh rgba(255, 255, 255, 0.3),
+    85vw 40vh rgba(255, 255, 255, 0.4),
+    90vw 50vh rgba(255, 255, 255, 0.3),
+    95vw 60vh rgba(255, 255, 255, 0.4);
+  animation-duration: 3s;
+  animation-delay: 0s;
+  left: 0;
+  top: -20px;
+}
+
+.rain::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: fall linear infinite;
+  box-shadow:
+    7vw 10vh rgba(255, 255, 255, 0.4),
+    12vw 20vh rgba(255, 255, 255, 0.3),
+    17vw 30vh rgba(255, 255, 255, 0.4),
+    22vw 40vh rgba(255, 255, 255, 0.3),
+    27vw 50vh rgba(255, 255, 255, 0.4),
+    32vw 15vh rgba(255, 255, 255, 0.3),
+    37vw 25vh rgba(255, 255, 255, 0.4),
+    42vw 35vh rgba(255, 255, 255, 0.3),
+    47vw 45vh rgba(255, 255, 255, 0.4),
+    52vw 55vh rgba(255, 255, 255, 0.3),
+    57vw 20vh rgba(255, 255, 255, 0.4),
+    62vw 30vh rgba(255, 255, 255, 0.3),
+    67vw 40vh rgba(255, 255, 255, 0.4),
+    72vw 50vh rgba(255, 255, 255, 0.3),
+    77vw 60vh rgba(255, 255, 255, 0.4),
+    82vw 25vh rgba(255, 255, 255, 0.3),
+    87vw 35vh rgba(255, 255, 255, 0.4),
+    92vw 45vh rgba(255, 255, 255, 0.3),
+    97vw 55vh rgba(255, 255, 255, 0.4);
+  animation-duration: 3.5s;
+  animation-delay: 1.5s;
+  left: 0;
+  top: -20px;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.4);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  color: white;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #f0f8ff;
+}
+
+#display {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.05);
+}
+
+.laps {
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 10px;
+  text-align: left;
+  scrollbar-width: thin;
+}
+
+.lap {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 5px 0;
+  color: #f9f9f9;
+  font-size: 0.95rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
